@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef} from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -8,4 +8,14 @@ import { Component, Input } from '@angular/core';
 })
 export class PainelComponent {
     @Input() titulo: string;
+
+    private elemento: ElementRef;
+
+    constructor(elemento: ElementRef) {
+        this.elemento = elemento;
+    }
+
+    fadeOut(cb) {
+        $(this.elemento.nativeElement).fadeOut(cb);
+    }
 }
